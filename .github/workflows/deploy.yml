@@ -1,0 +1,29 @@
+name: Deploy flowstate.express
+
+on:
+  push:
+    branches: [main]
+
+jobs:
+  deploy:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Tailscale
+        uses: tailscale/github-action@v2
+        with:
+          authkey: ${{ secrets.TAILSCALE_AUTHKEY }}
+
+      - name: Deploy auf Hetzner
+        uses: appleboy/ssh-action@v1
+        with:
+          host: ${{ secrets.HETZNER_TS_IP }}
+          username: nils
+          key: ${{ secrets.SSH_PRIVATE_KEY }}
+          script: |
+            set -e
+            cd ~/flowstate-express
+            git pull origin main
+            docker compose build --no-cache
+            docker compose up -d
+            echo "✓ flowstate.express deployed $(date)"
