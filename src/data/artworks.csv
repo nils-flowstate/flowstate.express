@@ -1,0 +1,14 @@
+id,base_id,version,name,beschreibung,hauptkategorie,unterkategorie,tags,homepage,preis,veroeffentlichungsdatum,zeitraum,veroeffentlichungsort,event_id,event_exclusive_release,inspiration_kuenstler,inspiration_epoche,inspiration_gefuehl,filename,collection_id,series_id,is_rampenlicht,rampenlicht_percent,created_at
+draw-01-v1,draw-01,1,Zeichnung I,,Zeichnen,,zeichnung;linie,,,,,,,,,,,,draw-01.webp,,,false,,2026-01-10T10:00:00Z
+draw-02-v1,draw-02,1,Linien im Raum — Stand 1,Erster Stand des laufenden Projekts,Zeichnen,,zeichnung;prozess,,,,,,,,,,,,draw-02-01.webp,,,false,,2026-02-01T09:00:00Z
+draw-02-v2,draw-02,2,Linien im Raum — Stand 2,Aktueller Stand: 67 % fertig,Zeichnen,,zeichnung;prozess,,,,,,,,,,,,draw-02-02.webp,,,true,67,2026-03-15T11:00:00Z
+draw-03-v1,draw-03,1,Zeichnung III,,Zeichnen,,zeichnung;form,,,,,,,,,,,,draw-03.webp,,,false,,2026-01-20T14:00:00Z
+draw-04-v1,draw-04,1,Zeichnung IV,,Zeichnen,,zeichnung;licht,,,,,,,,,,,,draw-04.webp,,,false,,2026-02-10T16:00:00Z
+poem-01-v1,poem-01,1,Gedicht I,Ein deutsches Gedicht,Dichten,,gedicht;deutsch;lyrik,,,,,,,,,,,,poem-01.webp,,,false,,2025-11-05T08:00:00Z
+poem-02-v1,poem-02,1,Poem II,An English poem,Dichten,,poem;english;lyrik,,,,,,,,,,,,poem-02.webp,,series-01,false,,2025-09-12T09:30:00Z
+poem-03-v1,poem-03,1,Poem III,An English poem,Dichten,,poem;english;lyrik,,,,,,,,,,,,poem-03.webp,,series-01,false,,2025-10-01T10:00:00Z
+poem-04-v1,poem-04,1,Poem IV,An English poem,Dichten,,poem;english;lyrik,,,,,,,,,,,,poem-04.webp,,series-01,false,,2025-10-20T11:00:00Z
+poem-05-v1,poem-05,1,Gedicht V,Ein deutsches Gedicht,Dichten,,gedicht;deutsch;lyrik,,,,,,,,,,,,poem-05.webp,,series-02,false,,2025-12-01T09:00:00Z
+poem-06-v1,poem-06,1,Poem VI,An English poem,Dichten,,poem;english;lyrik,,,,,,,,,,,,poem-06.webp,,series-01,false,,2026-01-15T10:00:00Z
+philosophie-01-v1,philosophie-01,1,Philosophie I,,Philosophieren,,philosophie;gedanke,,,,,,,,,,,,philosophie-01.webp,,,false,,2026-02-20T13:00:00Z
+sculpture-01-v1,sculpture-01,1,Skulptur I,,Skulpturen,,skulptur;form;raum,,,,,,,,,,,,sculpture-01.webp,,,false,,2026-03-01T12:00:00Z

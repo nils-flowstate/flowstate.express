@@ -1,0 +1,3 @@
+id,name,beschreibung,tags,show_in_profile
+series-01,English,Poems written in English,poem;english;lyrik,false
+series-02,Deutsch,Gedichte auf Deutsch,poem;deutsch;lyrik,true

@@ -209,6 +209,61 @@ Passt für Sample data
 
 ---
 
+## Reviewer-Fund Runde 3 (Spec-Compliance-Review 2026-07-01 — IMPLEMENTATION_PLAN.md vs. Spec)
+
+Geprüft: `.claude/plan/IMPLEMENTATION_PLAN.md` gegen `.claude/Flowstate.Express.md`. Nur konkrete Abweichungen, keine Bewertung.
+
+### [Reviewer-Fund Runde 3 / KRITISCH] R3-1 — `filename_before` im Plan, aber aus Spec entfernt
+
+**Status:** offen
+
+`IMPLEMENTATION_PLAN.md` Z. 15 listet in den `artworks.csv`-Spalten weiterhin `filename_before` (zwischen `filename` und `collection_id`).
+Spec `Flowstate.Express.md` Z. 337 ([MVP]-Spaltenliste) enthält `filename_before` **nicht mehr** — die Liste endet mit `filename`, `collection_id`, `series_id`, `is_rampenlicht`, `rampenlicht_percent`, `created_at`.
+Spec Z. 341 markiert Vorher/Nachher-Vergleich (`filename_before`) explizit als `[SCOPE]`, nicht `[MVP]`.
+QUESTIONS C-1d Antwort bestätigt: *"Versionen kein filename_before. Habe dies entfernt."*
+
+**Abweichung:** Plan Z. 15 muss `filename_before` aus der [MVP]-Spaltenliste entfernen (oder klar als [SCOPE]/leer kennzeichnen konsistent zur Spec).
+
+---
+
+### [Reviewer-Fund Runde 3 / KRITISCH] R3-2 — Rampenlicht-Exklusivität: Plan widerspricht Spec
+
+**Status:** offen
+
+`IMPLEMENTATION_PLAN.md` Z. 18: *"**Rampenlicht ist unabhängig pro Werk** — mehrere Werke können gleichzeitig `is_rampenlicht = true` sein, jedes mit eigenem `rampenlicht_percent`. Keine Exklusivitäts-Logik nötig."*
+Spec `Flowstate.Express.md` Z. 340: *"Rampenlicht ist **exklusiv**: nur ein Werk pro Künstler kann `is_rampenlicht = true` haben — bei Neuwahl wird das alte auf `false` gesetzt. Gilt auf `base_id`-Ebene: nur die jeweils neueste Version einer `base_id` trägt den Rampenlicht-Status."*
+QUESTIONS Runde-2 C-1c Antwort: *"Annahme bestätigt"* (Exklusivität auf base_id-Ebene).
+
+**Abweichung:** Direkter Widerspruch. Plan Z. 18 behauptet das Gegenteil der Spec und der bereits bestätigten Antwort. Muss auf base_id-Ebene-Exklusivität geändert werden (bei Neuwahl altes Werk auf `false`).
+
+---
+
+### [Reviewer-Fund Runde 3] R3-3 — Collection-vs.-Serie-Distinktion fehlt im Plan
+
+**Status:** offen
+
+Spec `Flowstate.Express.md` Z. 339 (neu): *"**Unterschied Collection vs. Serie:** Eine **Collection** darf Werke aus mehreren Kategorien enthalten (kategorienübergreifend). Eine **Serie** enthält ausschließlich Werke derselben Kategorie."*
+`IMPLEMENTATION_PLAN.md` behandelt Collections und Serien durchgehend identisch, ohne diese Distinktion zu nennen:
+- Z. 16: beiden Dateien dasselbe Schema, kein Hinweis auf Kategorien-Regel.
+- Z. 53 / Z. 55: "Collections, Serien" bzw. "Collection-/Serien-Toggle" gemeinsam behandelt.
+- Z. 59: Seed-Daten erwähnen nur die poem-Serien, keine Collection-Kategorien-Regel.
+
+**Abweichung / Fehlend:** Die neue [MVP]-Regel aus Spec Z. 339 ist im Plan nirgends reflektiert. Relevant für Create/Update-Validierung von Serien (nur eine Kategorie) und für Seed-/CRUD-Logik.
+
+---
+
+### [Reviewer-Fund Runde 3] R3-4 — Falsche Zeilenreferenz für Impressum
+
+**Status:** offen
+
+`IMPLEMENTATION_PLAN.md` Z. 23: *"Footer: Logo + Impressum (**Spec Z. 95–119**, unverändert übernehmen)"*.
+In der aktuellen Spec steht der Impressum-Block jedoch bei Z. 136–159 (`### [MVP] Impressum` … "Haftung für Inhalte"). Z. 95–119 ist inzwischen der Colours-/Tech-Infrastructure-Bereich.
+QUESTIONS Runde-2 P-1 zitiert korrekt "Z. 137–159".
+
+**Abweichung:** Zeilenreferenz im Plan veraltet (Spec seit Aktualisierung verschoben). Sollte auf Z. 136–159 korrigiert werden.
+
+---
+
 ## Prinzipien-Gate (zur Implementierungszeit zu prüfen)
 
 Diese Punkte sind laut INIT_PROMPT nicht verhandelbar und müssen beim jeweiligen Feature-Build als Review-Gate dienen:
