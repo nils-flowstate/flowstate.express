@@ -9,7 +9,7 @@ import Link from "next/link";
 // ─────────────────────────────────────────────
 
 const GOOGLE_CAL_LINK =
-  "https://calendar.google.com/calendar/u/0?cid=Y185MmEwYmFiYmViOTc0NTMzZWNkMDhjNDAyYTY5NGJmNmEwNjk2NzMzY2NjZDZhYjc2N2FlNGI4MzVjZmJjZTgwQGdyb3VwLmNhbGVuZGFyLmdvb2dsZS5jb20";
+  "https://us06web.zoom.us/j/7489049326?pwd=JXcbVy2ng0YuldL86cQk3a47JbslCn.1&omn=81617147947";
 
 // Artwork references used in the zoom event (array of base_ids)
 // Spec §"Kunstobjekte-Referenzen": Werke, Serien oder Collections, die auf diesem Event ausgestellt wurden
@@ -195,7 +195,7 @@ function ZoomEventCard() {
             className="inline-flex items-center gap-2 px-5 py-2.5 rounded-full bg-sky text-white text-sm font-medium hover:bg-sky/90 transition-colors"
           >
             <ZoomIcon />
-            Zum Google-Kalender
+            Join-Session
           </a>
           {/* [SCOPE] Direct meeting link will be set once Zoom recurring link is published */}
           <button
