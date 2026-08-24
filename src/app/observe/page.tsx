@@ -86,7 +86,7 @@ function Lightbox({
         {/* Close */}
         <button
           onClick={onClose}
-          className="absolute -top-10 right-0 text-creme/70 hover:text-creme transition-colors"
+          className="absolute top-2 right-2 z-10 rounded-full bg-atelier/70 p-1.5 text-creme/80 transition-colors hover:text-creme sm:-top-10 sm:right-0 sm:bg-transparent sm:p-0"
           aria-label="Schließen"
         >
           <svg

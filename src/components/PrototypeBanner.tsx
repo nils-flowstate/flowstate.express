@@ -31,7 +31,16 @@ export default function PrototypeBanner() {
       if (e.key === "ArrowLeft") step(-1);
     }
     window.addEventListener("keydown", onKey);
-    return () => window.removeEventListener("keydown", onKey);
+
+    // Solange die Lightbox liegt, darf die Seite darunter nicht mitscrollen —
+    // auf dem Telefon wischt man sonst die Startseite hinter dem Bild weg.
+    const vorher = document.body.style.overflow;
+    document.body.style.overflow = "hidden";
+
+    return () => {
+      window.removeEventListener("keydown", onKey);
+      document.body.style.overflow = vorher;
+    };
   }, [lightbox, step]);
 
   const active = lightbox === null ? null : PROTOTYPE_SCREENS[lightbox];
@@ -149,19 +158,34 @@ export default function PrototypeBanner() {
           aria-label={active.caption}
         >
           <div
-            className="relative flex items-center gap-3 sm:gap-6"
+            className="relative flex w-full items-center justify-center gap-3 sm:gap-6"
             onClick={(e) => e.stopPropagation()}
           >
-            <NavButton direction="prev" onClick={() => step(-1)} />
+            {/* Auf schmalen Geräten liegen die Pfeile über dem Bild, ab sm
+                flankieren sie es. Nebeneinander passen sie dort nicht: Ein
+                Screen ist 9:19 hoch, bei 78dvh Höhe misst er allein schon
+                mehr als ein Telefon breit ist. Die Reihe lief deshalb über
+                den Rand hinaus — und weil Flexbox beim Überlaufen nicht mehr
+                zentriert, sondern am Anfang ausrichtet, saß das Bild links
+                und der rechte Pfeil außerhalb des Bildschirms. */}
+            <NavButton
+              direction="prev"
+              onClick={() => step(-1)}
+              className="absolute left-1 top-1/2 z-10 -translate-y-1/2 bg-atelier/70 sm:static sm:translate-y-0 sm:bg-creme/10"
+            />
             <Image
               src={`/images/prototype/${active.slug}.webp`}
               alt={active.alt}
               width={PROTOTYPE_IMAGE_WIDTH}
               height={active.height}
               unoptimized
-              className="max-h-[78vh] w-auto rounded-2xl shadow-2xl"
+              className="max-h-[78dvh] w-auto max-w-full rounded-2xl object-contain shadow-2xl"
             />
-            <NavButton direction="next" onClick={() => step(1)} />
+            <NavButton
+              direction="next"
+              onClick={() => step(1)}
+              className="absolute right-1 top-1/2 z-10 -translate-y-1/2 bg-atelier/70 sm:static sm:translate-y-0 sm:bg-creme/10"
+            />
           </div>
 
           <p className="font-accent text-xl text-creme/80" onClick={(e) => e.stopPropagation()}>
@@ -186,12 +210,20 @@ export default function PrototypeBanner() {
   );
 }
 
-function NavButton({ direction, onClick }: { direction: "prev" | "next"; onClick: () => void }) {
+function NavButton({
+  direction,
+  onClick,
+  className = "",
+}: {
+  direction: "prev" | "next";
+  onClick: () => void;
+  className?: string;
+}) {
   return (
     <button
       onClick={onClick}
       aria-label={direction === "prev" ? "Vorheriger Screen" : "Nächster Screen"}
-      className="shrink-0 rounded-full p-2 sm:p-3 bg-creme/10 text-creme hover:bg-creme/20 transition-colors"
+      className={`shrink-0 rounded-full p-2 sm:p-3 text-creme transition-colors hover:bg-creme/20 ${className}`}
     >
       <svg viewBox="0 0 24 24" className="w-5 h-5" fill="none" stroke="currentColor" strokeWidth={2}>
         <path

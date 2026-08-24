@@ -38,7 +38,7 @@ export default function LoginModal({ open, onClose }: Props) {
       onClick={onClose}
     >
       <div
-        className="bg-creme rounded-2xl p-8 w-full max-w-sm mx-4 shadow-2xl"
+        className="relative bg-creme rounded-2xl p-8 w-full max-w-sm mx-4 shadow-2xl"
         onClick={(e) => e.stopPropagation()}
       >
         <h2 className="font-display text-2xl font-semibold text-text mb-1">

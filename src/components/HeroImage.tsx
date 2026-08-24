@@ -44,7 +44,7 @@ export default function HeroImage({ src, alt }: Props) {
             />
             <button
               onClick={() => setLightboxOpen(false)}
-              className="absolute -top-3 -right-3 bg-creme rounded-full p-2 text-text hover:text-fire transition-colors shadow-lg"
+              className="absolute top-2 right-2 sm:-top-3 sm:-right-3 bg-creme rounded-full p-2 text-text hover:text-fire transition-colors shadow-lg"
               aria-label="Schließen"
             >
               <svg viewBox="0 0 24 24" className="w-5 h-5" fill="none" stroke="currentColor" strokeWidth={2}>
