@@ -56,12 +56,12 @@ export default function DatenschutzPage() {
             <h2 className="font-display text-xl font-bold text-text mb-3">Präambel</h2>
             <p className="leading-relaxed text-muted">
               Mit der folgenden Datenschutzerklärung möchten wir Sie darüber aufklären, welche Arten Ihrer
-              personenbezogenen Daten (nachfolgend auch kurz als „Daten" bezeichnet) wir zu welchen Zwecken und
+              personenbezogenen Daten (nachfolgend auch kurz als „Daten“ bezeichnet) wir zu welchen Zwecken und
               in welchem Umfang verarbeiten. Die Datenschutzerklärung gilt für alle von uns durchgeführten
               Verarbeitungen personenbezogener Daten, sowohl im Rahmen der Erbringung unserer Leistungen als auch
               insbesondere auf unseren Webseiten, in mobilen Applikationen sowie innerhalb externer
               Onlinepräsenzen, wie z.&nbsp;B. unserer Social-Media-Profile (nachfolgend zusammenfassend bezeichnet
-              als „Onlineangebot").
+              als „Onlineangebot“).
             </p>
             <p className="leading-relaxed text-muted mt-3">Die verwendeten Begriffe sind nicht geschlechtsspezifisch.</p>
             {/* Stand: aktualisiert auf 2026-07-01 (QUESTIONS.md A-1) */}
@@ -366,7 +366,7 @@ export default function DatenschutzPage() {
             <p className="leading-relaxed text-muted">
               Wir verarbeiten personenbezogene Daten unserer Vertrags- und Geschäftspartner, etwa Kunden,
               Auftraggeber, Interessenten, Lieferanten und sonstige Kooperationspartner (zusammenfassend
-              „Vertragspartner"), zur Anbahnung, Durchführung und Abwicklung von Vertragsverhältnissen sowie
+              „Vertragspartner“), zur Anbahnung, Durchführung und Abwicklung von Vertragsverhältnissen sowie
               vergleichbaren Rechtsverhältnissen.
             </p>
             <p className="leading-relaxed text-muted mt-3">
@@ -384,7 +384,7 @@ export default function DatenschutzPage() {
             <p className="leading-relaxed text-muted">
               Im Rahmen von Vertrags- und sonstigen Rechtsbeziehungen bieten wir den betroffenen Personen
               effiziente und sichere Zahlungsmöglichkeiten an und setzen hierzu neben Banken und
-              Kreditinstituten weitere Dienstleister ein (zusammenfassend „Zahlungsdienstleister"). Der
+              Kreditinstituten weitere Dienstleister ein (zusammenfassend „Zahlungsdienstleister“). Der
               Zahlungsverkehr erfolgt ausschließlich über verschlüsselte Verbindungen.
             </p>
             <p className="leading-relaxed text-muted mt-3">
@@ -442,7 +442,7 @@ export default function DatenschutzPage() {
             <ul className="list-disc list-inside space-y-3 text-muted leading-relaxed">
               <li>
                 <strong className="text-text">Erhebung von Zugriffsdaten und Logfiles:</strong> Der Zugriff auf
-                unser Onlineangebot wird in Form von sogenannten „Server-Logfiles" protokolliert. Logfile-Informationen
+                unser Onlineangebot wird in Form von sogenannten „Server-Logfiles“ protokolliert. Logfile-Informationen
                 werden für die Dauer von maximal 30 Tagen gespeichert und danach gelöscht oder anonymisiert.
               </li>
               <li>
@@ -510,7 +510,7 @@ export default function DatenschutzPage() {
           <div id="m134">
             <h2 className="font-display text-xl font-bold text-text mb-3">Einsatz von Cookies</h2>
             <p className="leading-relaxed text-muted">
-              Unter dem Begriff „Cookies" werden Funktionen, die Informationen auf Endgeräten der Nutzer
+              Unter dem Begriff „Cookies“ werden Funktionen, die Informationen auf Endgeräten der Nutzer
               speichern und aus ihnen auslesen, verstanden. Wir verwenden Cookies gemäß den gesetzlichen
               Vorschriften.
             </p>
@@ -558,7 +558,7 @@ export default function DatenschutzPage() {
           <div id="m451">
             <h2 className="font-display text-xl font-bold text-text mb-3">Single-Sign-On-Anmeldung</h2>
             <p className="leading-relaxed text-muted">
-              Als „Single-Sign-On" werden Verfahren bezeichnet, die es Nutzern erlauben, sich mit Hilfe eines
+              Als „Single-Sign-On“ werden Verfahren bezeichnet, die es Nutzern erlauben, sich mit Hilfe eines
               Nutzerkontos bei einem Anbieter von Single-Sign-On-Verfahren auch bei unserem Onlineangebot
               anzumelden. Die Authentifizierung erfolgt direkt bei dem jeweiligen Single-Sign-On-Anbieter.
             </p>
@@ -687,7 +687,7 @@ export default function DatenschutzPage() {
           <div id="m263">
             <h2 className="font-display text-xl font-bold text-text mb-3">Webanalyse, Monitoring und Optimierung</h2>
             <p className="leading-relaxed text-muted">
-              Die Webanalyse (auch als „Reichweitenmessung" bezeichnet) dient der Auswertung der Besucherströme
+              Die Webanalyse (auch als „Reichweitenmessung“ bezeichnet) dient der Auswertung der Besucherströme
               unseres Onlineangebots. Wir nutzen ein IP-Masking-Verfahren (Pseudonymisierung durch Kürzung der
               IP-Adresse) zum Schutz der Nutzer.
             </p>
@@ -863,7 +863,7 @@ export default function DatenschutzPage() {
                 Plattformen interagieren.
               </li>
               <li>
-                <strong className="text-text">Personenbezogene Daten:</strong> „Personenbezogene Daten" sind
+                <strong className="text-text">Personenbezogene Daten:</strong> „Personenbezogene Daten“ sind
                 alle Informationen, die sich auf eine identifizierte oder identifizierbare natürliche Person
                 beziehen (Art. 4 Nr. 1 DSGVO).
               </li>
@@ -872,12 +872,12 @@ export default function DatenschutzPage() {
                 Ereignisse oder Aktivitäten, die in einem System oder Netzwerk protokolliert wurden.
               </li>
               <li>
-                <strong className="text-text">Verantwortlicher:</strong> Als „Verantwortlicher" wird die
+                <strong className="text-text">Verantwortlicher:</strong> Als „Verantwortlicher“ wird die
                 natürliche oder juristische Person bezeichnet, die allein oder gemeinsam mit anderen über die
                 Zwecke und Mittel der Verarbeitung von personenbezogenen Daten entscheidet.
               </li>
               <li>
-                <strong className="text-text">Verarbeitung:</strong> „Verarbeitung" ist jeder mit oder ohne
+                <strong className="text-text">Verarbeitung:</strong> „Verarbeitung“ ist jeder mit oder ohne
                 Hilfe automatisierter Verfahren ausgeführte Vorgang oder jede solche Vorgangsreihe im
                 Zusammenhang mit personenbezogenen Daten.
               </li>

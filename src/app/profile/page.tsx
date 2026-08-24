@@ -89,7 +89,6 @@ const PROFILE_SERIES = [
 // ─────────────────────────────────────────────
 
 function ExhibitionCard({
-  base_id,
   filename,
   name,
   hauptkategorie,

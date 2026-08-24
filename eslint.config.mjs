@@ -12,6 +12,9 @@ const eslintConfig = defineConfig([
     "out/**",
     "build/**",
     "next-env.d.ts",
+    // Vorlagen und Zuarbeit für den Assistenten — kein ausgelieferter Code.
+    // src/app/datenschutz/page.tsx ist die gepflegte Fassung.
+    ".claude/**",
   ]),
 ]);
 

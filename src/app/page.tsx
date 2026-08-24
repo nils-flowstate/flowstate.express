@@ -167,7 +167,7 @@ export default function Landingpage() {
               <ul className="space-y-3 text-sm text-muted">
                 <li>
                   <span className="font-bold text-text text-2xl block leading-tight">95 %</span>
-                  der 13–17-Jährigen nutzen Social Media; ein Drittel davon „fast ständig". <span className="text-xs">— Pew Research 2022</span>
+                  der 13–17-Jährigen nutzen Social Media; ein Drittel davon „fast ständig“. <span className="text-xs">— Pew Research 2022</span>
                 </li>
                 <li>
                   <span className="font-bold text-text text-2xl block leading-tight">8 Std. 39 Min.</span>
