@@ -61,8 +61,14 @@ services:
     tmpfs:
       # Zwischenspeicher des Bildoptimierers von Next. Er darf verloren gehen —
       # er wird bei Bedarf neu gefüllt.
-      - /app/.next/cache:rw,noexec,nosuid,size=128m
-      - /tmp:rw,noexec,nosuid,size=32m
+      #
+      # uid/gid sind hier nicht schmückendes Beiwerk: Ein tmpfs verdeckt das
+      # Verzeichnis aus dem Image samt dessen Eigentümer und gehört sonst root
+      # mit 0755. Der Server läuft als nextjs (1001) und käme dann nicht hinein
+      # — Bilder würden zwar ausgeliefert, aber bei jedem Abruf neu berechnet,
+      # und Next protokolliert für jeden Versuch ein unbehandeltes EACCES.
+      - /app/.next/cache:rw,noexec,nosuid,size=128m,uid=1001,gid=1001
+      - /tmp:rw,noexec,nosuid,size=32m,mode=1777
 
     security_opt:
       - no-new-privileges:true
