@@ -54,13 +54,25 @@ export default function Header() {
             })}
           </nav>
 
-          {/* Login Button */}
-          <button
-            onClick={() => setLoginOpen(true)}
-            className="text-sm font-medium px-4 py-2 rounded-full border border-orange text-orange hover:bg-orange hover:text-white transition-colors"
-          >
-            Anmelden
-          </button>
+          <div className="flex items-center gap-2">
+            {/* Dauerhafter Verweis auf den Prototypen — scrollt zur Leiste oben. */}
+            <button
+              onClick={() => window.scrollTo({ top: 0, behavior: "smooth" })}
+              className="hidden sm:flex items-center gap-1.5 text-xs font-medium px-3 py-2 rounded-full bg-atelier text-creme hover:bg-atelier/85 transition-colors"
+              title="Zum aktuellen Prototypen"
+            >
+              <span className="w-1.5 h-1.5 rounded-full bg-orange animate-pulse" />
+              Prototyp
+            </button>
+
+            {/* Login Button */}
+            <button
+              onClick={() => setLoginOpen(true)}
+              className="text-sm font-medium px-4 py-2 rounded-full border border-orange text-orange hover:bg-orange hover:text-white transition-colors"
+            >
+              Anmelden
+            </button>
+          </div>
         </div>
 
         {/* Mobile Tab Navigation */}

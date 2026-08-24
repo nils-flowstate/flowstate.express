@@ -1,0 +1,92 @@
+# Betrieb von flowstate.express auf dem VPS.
+#
+# Der Container liefert eine Website aus und hält nichts fest: kein dauerhaftes
+# Volume, kein Docker-Socket. Die einzigen beschreibbaren Orte sind zwei tmpfs
+# im Arbeitsspeicher, die bei jedem Neustart leer sind.
+
+services:
+  flowstate-express:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    image: flowstate-express:aktuell
+    container_name: flowstate-express
+
+    # Nur an die Loopback-Adresse gebunden. Von außen ist die Website
+    # ausschließlich über den zentralen Caddy auf 443 erreichbar; 3000 bleibt in
+    # der Firewall zu. Die Bindung dient den lokalen Prüfungen.
+    ports:
+      - "127.0.0.1:3000:3000"
+
+    # Der zentrale Caddy läuft als eigener Container und erreicht diesen hier
+    # nicht über 127.0.0.1 — das wäre sein eigenes Loopback. Er spricht ihn im
+    # gemeinsamen proxy-Netz unter diesem Namen an:
+    #
+    #     flowstate.express { reverse_proxy flowstate-express:3000 }
+    #
+    # Name und Port stehen so im Caddyfile und dürfen sich nicht ändern, ohne
+    # dass sie dort mitwandern.
+    networks:
+      proxy:
+        aliases:
+          - flowstate-express
+
+    # PHONE_NUMBER wird zur Laufzeit von /zugang gelesen (WhatsApp-Redirect).
+    # .env liegt neben dieser Datei und ist weder in git noch im Image — siehe
+    # .gitignore und .dockerignore. Deshalb steht die Nummer nirgends im
+    # ausgelieferten HTML und auch in keiner Image-Schicht.
+    env_file:
+      - .env
+
+    restart: unless-stopped
+
+    # node als PID 1 bekommt die Standardbehandlung von Signalen nicht; ohne
+    # init säße jedes "stop" die vollen zehn Sekunden aus, bis Docker den
+    # Container abwürgt.
+    init: true
+
+    healthcheck:
+      # Node bringt fetch mit. So braucht das Image weder curl noch wget.
+      test:
+        - CMD
+        - node
+        - -e
+        - "fetch('http://127.0.0.1:3000/').then((a)=>process.exit(a.ok?0:1)).catch(()=>process.exit(1))"
+      interval: 30s
+      timeout: 5s
+      retries: 3
+      start_period: 20s
+
+    read_only: true
+    tmpfs:
+      # Zwischenspeicher des Bildoptimierers von Next. Er darf verloren gehen —
+      # er wird bei Bedarf neu gefüllt.
+      - /app/.next/cache:rw,noexec,nosuid,size=128m
+      - /tmp:rw,noexec,nosuid,size=32m
+
+    security_opt:
+      - no-new-privileges:true
+    cap_drop:
+      - ALL
+
+    # Ressourcengrenzen, damit ein einzelner Container den VPS nicht lahmlegt.
+    deploy:
+      resources:
+        limits:
+          cpus: "1.0"
+          memory: 512M
+
+    # Protokollrotation: ohne Grenze füllt das Protokoll irgendwann die Platte.
+    logging:
+      driver: json-file
+      options:
+        max-size: "10m"
+        max-file: "5"
+
+# Das Netz gehört dem zentralen Caddy und wird außerhalb dieses Projekts
+# verwaltet. "external" heißt: compose legt es weder an noch entfernt es das
+# Netz beim Herunterfahren — sonst risse ein "down" die anderen Websites auf
+# diesem Server mit ab.
+networks:
+  proxy:
+    external: true

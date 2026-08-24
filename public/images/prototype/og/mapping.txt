@@ -1,0 +1,22 @@
+# Zuordnung Original → Slug für ./scripts/optimize-prototype-images.sh
+#
+#   <dateiname>  <slug>  [<oben-abschneiden-px>]
+#
+# Die dritte Spalte ist optional und schneidet oben Pixel ab. Zwei Exporte
+# tragen über dem Telefon noch die Rahmenbeschriftung aus Figma ("F2 Ökosystem
+# — …"); ohne den Schnitt stünde sie im Vordergrund der Vorschaubilder, die
+# oben ausgerichtet beschnitten werden.
+#
+# Die Slugs müssen zu PROTOTYPE_SCREENS in src/lib/prototype.ts passen.
+
+Express-Prototype-Start.png                         01-einstieg
+Express-Prototype-Account-Overview.png              02-atelier
+Express-Prototype-Artist-Profile-Art.png            03-buehne
+Express-Prototype-Observe-Feed-Uniqueness.png       04-erfahre-feed
+Express-Prototype-Observe-Feed-Art-Rating.png       05-resonanz
+Express-Prototype-Observe-Feed-Art.png              06-werk-staende
+Express-Prototype-Account-Events.png                07-events-live
+Express-Prototype-Artist-Profile-Events-Timeline.png 08-events-timeline
+Express-Prototype-Personal-Ecosystems.png           09-oekosysteme            158
+Express-Prototype-Public-Ecosystems.png             10-oekosysteme-entdecken  158
+Express-Prototype-Account-Transactions.png          11-abonnements

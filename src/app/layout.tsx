@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import "./globals.css";
 import Header from "@/components/Header";
+import PrototypeBanner from "@/components/PrototypeBanner";
 import Footer from "@/components/Footer";
 
 export const metadata: Metadata = {
@@ -16,6 +17,7 @@ export default function RootLayout({
   return (
     <html lang="de" className="h-full">
       <body className="min-h-full flex flex-col bg-creme text-text font-body antialiased">
+        <PrototypeBanner />
         <Header />
         <main className="flex-1">{children}</main>
         <Footer />

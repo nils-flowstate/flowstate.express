@@ -26,3 +26,12 @@ body {
   color: var(--foreground);
   font-family: var(--font-body);
 }
+
+/* Horizontale Screenshot-Reihe im Prototyp-Sneak-Peek: scrollbar, aber ohne Leiste */
+.no-scrollbar {
+  scrollbar-width: none;
+  -ms-overflow-style: none;
+}
+.no-scrollbar::-webkit-scrollbar {
+  display: none;
+}

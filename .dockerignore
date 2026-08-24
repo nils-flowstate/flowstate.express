@@ -1,5 +1,28 @@
+# Was hier steht, erreicht den Build-Kontext gar nicht erst — das hält das
+# Image klein und Geheimnisse draußen.
+
+# Ergebnisse früherer Läufe. Der Build erzeugt sie im Container neu; von außen
+# hineingereicht wären sie bestenfalls veraltet.
 .next
 node_modules
+*.tsbuildinfo
+
 .git
+.gitignore
+
+# .env trägt PHONE_NUMBER. Die Datei gehört in keine Image-Schicht; compose
+# reicht sie zur Laufzeit herein.
 .env*
+
+# Dokumentation und Werkzeuge, die der Server nicht ausführt.
 *.md
+.claude
+.vscode
+scripts
+Dockerfile
+.dockerignore
+docker-compose.yaml
+
+# Die unkomprimierten Originale der Prototyp-Screenshots (mehrere Megabyte).
+# Ausgeliefert werden nur die WebP-Dateien eine Ebene darüber.
+public/images/prototype/og

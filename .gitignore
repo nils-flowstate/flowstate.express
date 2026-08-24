@@ -39,3 +39,9 @@ yarn-error.log*
 # typescript
 *.tsbuildinfo
 next-env.d.ts
+
+# Prototyp-Screenshots: Originale bleiben lokal, ausgeliefert wird nur das
+# komprimierte WebP in public/images/prototype/
+public/images/prototype/og/*
+!public/images/prototype/og/README.md
+!public/images/prototype/og/mapping.txt
