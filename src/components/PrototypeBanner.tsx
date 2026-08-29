@@ -134,6 +134,13 @@ export default function PrototypeBanner() {
                     <figcaption className="font-accent text-[15px] text-creme/70 mt-2 px-1 leading-snug">
                       {screen.caption}
                     </figcaption>
+                    {screen.tag && (
+                      <p className="mt-1 px-1">
+                        <span className="inline-block text-[9px] font-medium tracking-[0.12em] uppercase px-2 py-0.5 rounded-full border border-creme/25 text-creme/50">
+                          {screen.tag}
+                        </span>
+                      </p>
+                    )}
                   </figure>
                 ))}
               </div>
@@ -188,12 +195,22 @@ export default function PrototypeBanner() {
             />
           </div>
 
-          <p className="font-accent text-xl text-creme/80" onClick={(e) => e.stopPropagation()}>
-            {active.caption}
-            <span className="font-body text-xs text-creme/40 ml-3">
-              {lightbox! + 1} / {count}
-            </span>
-          </p>
+          <div
+            className="flex flex-col items-center gap-2"
+            onClick={(e) => e.stopPropagation()}
+          >
+            <p className="font-accent text-xl text-creme/80">
+              {active.caption}
+              <span className="font-body text-xs text-creme/40 ml-3">
+                {lightbox! + 1} / {count}
+              </span>
+            </p>
+            {active.tag && (
+              <span className="text-[10px] font-medium tracking-[0.12em] uppercase px-2.5 py-1 rounded-full border border-creme/25 text-creme/50">
+                {active.tag}
+              </span>
+            )}
+          </div>
 
           <button
             onClick={() => setLightbox(null)}

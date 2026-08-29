@@ -21,6 +21,11 @@ export interface PrototypeScreen {
   caption: string;
   /** Alt-Text — beschreibt, was der Screen zeigt */
   alt: string;
+  /**
+   * Fähnchen unter dem Bild, wo der Screen nicht den gebauten Stand zeigt,
+   * sondern wohin es gehen soll. Ohne Angabe erscheint keines.
+   */
+  tag?: string;
 }
 
 /**
@@ -97,6 +102,7 @@ export const PROTOTYPE_SCREENS: PrototypeScreen[] = [
     height: 1887,
     caption: "Bekannte Ökosysteme",
     alt: "Entdecken-Ansicht mit Filtern nach Medium, Stil, Glaube und Herkunft",
+    tag: "Beispielhafte Wunschansicht",
   },
   {
     slug: "11-abonnements",
