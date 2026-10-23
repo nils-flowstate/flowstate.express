@@ -1,0 +1,56 @@
+# flowstate.express (Willkommensseite): eine offene, statische Seite hinter dem
+# zentralen Caddy (/home/nils/caddy). Er leitet flowstate.express und
+# www.flowstate.express an "flowstate-express:3013" im Netz "proxy" weiter.
+# Die Seite verweist auf den Prototyp (prototype.flowstate.express, eigenes Projekt).
+
+services:
+  web:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    image: flowstate-express:aktuell
+    container_name: flowstate-express
+
+    # Nur Loopback, für lokale Prüfungen. Von außen nur über den zentralen Caddy.
+    ports:
+      - "127.0.0.1:3013:3013"
+
+    networks:
+      proxy:
+        aliases:
+          - flowstate-express
+
+    restart: unless-stopped
+
+    healthcheck:
+      test: ["CMD", "wget", "--quiet", "--spider", "http://127.0.0.1:3013/health"]
+      interval: 30s
+      timeout: 5s
+      retries: 3
+      start_period: 10s
+
+    read_only: true
+    tmpfs:
+      - /tmp:rw,noexec,nosuid,size=16m
+    security_opt:
+      - no-new-privileges:true
+    cap_drop:
+      - ALL
+
+    deploy:
+      resources:
+        limits:
+          cpus: "0.25"
+          memory: 64M
+
+    logging:
+      driver: json-file
+      options:
+        max-size: "10m"
+        max-file: "3"
+
+networks:
+  # Das Netz gehört dem zentralen Caddy. "external": ein "down" reißt die
+  # anderen Seiten nicht mit.
+  proxy:
+    external: true

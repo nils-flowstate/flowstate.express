@@ -1,0 +1,14 @@
+# Baustein für den zentralen Reverse Proxy: /home/nils/caddy/Caddyfile
+#
+# Gehört NICHT in dieses Repository, sondern in die Caddy-Konfiguration des
+# Servers. Hier nur als nachvollziehbare Kopie dessen, was dort stehen soll.
+# Umsetzen nur gebündelt mit dem Umzug des Prototyps auf
+# prototype.flowstate.express (siehe README.md, Abschnitt „Live-Gang“).
+
+flowstate.express {
+    reverse_proxy flowstate-express:3013
+}
+
+www.flowstate.express {
+    redir https://flowstate.express{uri} permanent
+}
