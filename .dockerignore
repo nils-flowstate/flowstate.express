@@ -26,3 +26,7 @@ docker-compose.yaml
 # Die unkomprimierten Originale der Prototyp-Screenshots (mehrere Megabyte).
 # Ausgeliefert werden nur die WebP-Dateien eine Ebene darüber.
 public/images/prototype/og
+
+# Dasselbe für die Gamescom-Screens — dort liegt zusätzlich der 15 MB große
+# Rohmitschnitt. Ins Image gehören nur public/video/ und die WebP-Dateien.
+public/images/gamescom/og

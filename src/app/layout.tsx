@@ -39,6 +39,10 @@ const caveat = Caveat({
 });
 
 export const metadata: Metadata = {
+  // metadataBase macht aus relativen Bildpfaden in openGraph absolute URLs.
+  // Ohne sie warnt Next beim Bauen und setzt localhost ein — in einer geteilten
+  // Vorschaukarte stünde dann ein Link, der nur auf dem Entwicklungsrechner geht.
+  metadataBase: new URL("https://flowstate.express"),
   title: "Flowstate Express",
   description: "Spüre deinen Ausdruck — Raum für Kunst, Ausdruck und Verbindung",
 };

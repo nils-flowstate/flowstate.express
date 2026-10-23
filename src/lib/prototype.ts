@@ -12,6 +12,13 @@ export const PROTOTYPE_HOST = "prototype.flowstate.express";
 /** Serverseitige Redirect-Route, siehe src/app/zugang/route.ts */
 export const PROTOTYPE_ACCESS_PATH = "/zugang";
 
+/**
+ * Derselbe Weg, aber mit Gamescom als Herkunft: Die vorbelegte WhatsApp-
+ * Nachricht nennt dann die Messe. `von` ist in route.ts eine feste Zuordnung,
+ * kein durchgereichter Text.
+ */
+export const PROTOTYPE_ACCESS_PATH_GAMESCOM = "/zugang?von=gamescom";
+
 export interface PrototypeScreen {
   /** Dateiname ohne Endung in public/images/prototype/ */
   slug: string;
@@ -26,6 +33,16 @@ export interface PrototypeScreen {
    * sondern wohin es gehen soll. Ohne Angabe erscheint keines.
    */
   tag?: string;
+  /**
+   * Wie das Vorschaubild die Kachel füllt. Standard ist "cover": Die Kachel hat
+   * ein festes Seitenverhältnis, damit die Reihe ruhig bleibt, und ein Screen in
+   * Telefonform verliert dabei nur wenige Pixel links und rechts.
+   *
+   * "contain" ist für Screens, die nach einem Zuschnitt deutlich kürzer sind —
+   * bei denen würde "cover" einen schmalen Streifen aus der Mitte zeigen und
+   * links wie rechts den Text abschneiden.
+   */
+  fit?: "cover" | "contain";
 }
 
 /**
@@ -93,16 +110,16 @@ export const PROTOTYPE_SCREENS: PrototypeScreen[] = [
   },
   {
     slug: "09-oekosysteme",
-    height: 1887,
+    height: 1050,
     caption: "Eigene Welten",
-    alt: "Ökosystem-Übersicht mit eigener Welt und abonnierten Ökosystemen",
-  },
-  {
-    slug: "10-oekosysteme-entdecken",
-    height: 1887,
-    caption: "Bekannte Ökosysteme",
-    alt: "Entdecken-Ansicht mit Filtern nach Medium, Stil, Glaube und Herkunft",
-    tag: "Beispielhafte Wunschansicht",
+    alt: "Ökosystem-Übersicht mit einer eigenen, frei erfundenen Welt",
+    // Der Export zeigte darunter fremde Marken als abonnierbare Einträge; der
+    // Screen ist deshalb unten beschnitten (siehe og/mapping.txt) und dadurch
+    // deutlich kürzer als die übrigen — er wird eingepasst statt beschnitten.
+    fit: "contain",
+    // Die Ansicht nennt "10 € mtl." für etwas, das es noch nicht gibt. Das
+    // Fähnchen hält fest, dass hier kein Angebot steht.
+    tag: "Wunschansicht — kein Angebot",
   },
   {
     slug: "11-abonnements",

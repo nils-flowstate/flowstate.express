@@ -1,11 +1,27 @@
 # Zuordnung Original → Slug für ./scripts/optimize-prototype-images.sh
 #
-#   <dateiname>  <slug>  [<oben-abschneiden-px>]
+#   <dateiname>  <slug>  [<oben-abschneiden-px>]  [<unten-abschneiden-px>]
 #
 # Die dritte Spalte ist optional und schneidet oben Pixel ab. Zwei Exporte
 # tragen über dem Telefon noch die Rahmenbeschriftung aus Figma ("F2 Ökosystem
 # — …"); ohne den Schnitt stünde sie im Vordergrund der Vorschaubilder, die
 # oben ausgerichtet beschnitten werden.
+#
+# Die vierte Spalte schneidet unten ab. Sie gibt es wegen 09-oekosysteme:
+# Der Export zeigt unter der eigenen Welt eine Liste "Bekannte Ökosysteme" mit
+# fremden Marken ("One Piece", "Human Design") samt Abonnenten-Zahlen und
+# Abonniert-Zustand. Das darf nicht ausgeliefert werden — siehe unten. Der
+# Schnitt bei Originalzeile 1105 (1860 − 158 oben − 755 unten = 947) endet im
+# Weißraum zwischen der Hafenstadt-Karte (Unterkante ~1078) und der Überschrift
+# "BEKANNTE ÖKOSYSTEME" (~1150). Übrig bleibt nur die frei erfundene eigene Welt.
+#
+# ENTFERNT: Express-Prototype-Public-Ecosystems.png (Slug 10-oekosysteme-entdecken).
+# Der Screen listet Harry Potter, Marvel, Star Wars, Pokémon, Der Herr der Ringe,
+# DC Comics und Minecraft als abonnierbare Einträge mit erfundenen Abonnenten-
+# Zahlen. Fremde Marken als Katalog in einer Abo-Oberfläche legen eine Lizenz
+# oder Zusammenarbeit nahe, die es nicht gibt. Ein Hinweistext heilt das nicht,
+# und Beschneiden auch nicht — die Markenliste IST der Screen. Nicht wieder
+# aufnehmen, solange die Rechte nicht geklärt sind.
 #
 # Die Slugs müssen zu PROTOTYPE_SCREENS in src/lib/prototype.ts passen.
 
@@ -17,6 +33,5 @@ Express-Prototype-Observe-Feed-Art-Rating.png       05-resonanz
 Express-Prototype-Observe-Feed-Art.png              06-werk-staende
 Express-Prototype-Account-Events.png                07-events-live
 Express-Prototype-Artist-Profile-Events-Timeline.png 08-events-timeline
-Express-Prototype-Personal-Ecosystems.png           09-oekosysteme            158
-Express-Prototype-Public-Ecosystems.png             10-oekosysteme-entdecken  158
+Express-Prototype-Personal-Ecosystems.png           09-oekosysteme            158  755
 Express-Prototype-Account-Transactions.png          11-abonnements

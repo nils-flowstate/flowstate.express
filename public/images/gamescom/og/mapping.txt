@@ -1,0 +1,20 @@
+# Zuordnung Original → Slug für ./scripts/optimize-gamescom-images.sh
+#
+#   <dateiname>  <slug>
+#
+# Die Slugs sind die Reiter der Geschichtenwelt und müssen zu GAMESCOM_SCREENS
+# in src/lib/gamescom.ts passen. Reihenfolge = Reihenfolge auf /gamescom.
+#
+# Alle Inhalte dieser Screens sind frei erfunden (Welt "Razegia"). Hier gehört
+# nichts hinein, was fremde Marken, Werke oder Rechteinhaber zeigt — siehe die
+# Notiz in ../../prototype/og/mapping.txt.
+
+Ecosystem-Timeline.png    zeitlinie
+Ecosystem-Graph.png       geflecht
+Ecosystem-Places.png      karte
+Ecosystem-Characters.png  werkstatt-figuren
+Ecosystem-Workbench.png   werkstatt-dinge
+
+# Keine Telefonansicht, sondern die Hinweiskarte aus der App. Sie steht auf der
+# Seite in einem eigenen Abschnitt und nicht in der Bildergalerie.
+preview-ecosystem.png     ueberblick

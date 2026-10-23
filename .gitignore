@@ -45,3 +45,8 @@ next-env.d.ts
 public/images/prototype/og/*
 !public/images/prototype/og/README.md
 !public/images/prototype/og/mapping.txt
+
+# Gamescom: dasselbe für die Screens der Geschichtenwelt — und für den
+# Rohmitschnitt (15 MB .mov), aus dem public/video/geschichtenwelt.* entsteht.
+public/images/gamescom/og/*
+!public/images/gamescom/og/mapping.txt
