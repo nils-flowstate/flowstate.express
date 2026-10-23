@@ -7,5 +7,6 @@
   lokal in `site/assets/`. Keine Drittanbieter, kein Tracking, keine Cookies.
 - Alle Pfade relativ, damit die Seite auch unter einem Testpfad läuft.
 - Änderungen laufen über den Skill `lieferkette` (Branch, Test, Freigabe).
-- Ein Impressum und eine Datenschutzerklärung fehlen noch und werden vor dem
-  Live-Gang gebraucht (Angaben von Nils, nichts erfinden).
+- Impressum und Datenschutz: Die Fußzeile verlinkt auf flowstate.foundation
+  (gleicher Verantwortlicher, Nils Tenkotte). Die Seite selbst setzt keine
+  Cookies, lädt nichts von Dritten und schreibt kein Zugriffsprotokoll.

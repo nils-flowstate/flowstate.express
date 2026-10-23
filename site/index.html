@@ -1,0 +1,68 @@
+<!doctype html>
+<html lang="de">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Flowstate Express – Unseren Gefühlen Farbe verleihen</title>
+<meta name="description" content="Hier entsteht etwas Magisches: ein Ort für Gemeinschaft, Kunst, Erschaffen und Kreativität. Für uns alle. Unseren Gefühlen Farbe verleihen.">
+<meta name="theme-color" content="#FAF1E6">
+<link rel="icon" href="assets/logo/flowstate-express-logo-128.webp" type="image/webp">
+<style>
+@font-face{font-family:Fraunces;src:url(assets/fonts/Fraunces.ttf) format("truetype-variations");font-weight:100 900;font-display:swap}
+@font-face{font-family:"DM Sans";src:url(assets/fonts/DMSans.ttf) format("truetype-variations");font-weight:100 1000;font-display:swap}
+@font-face{font-family:Caveat;src:url(assets/fonts/Caveat.ttf) format("truetype-variations");font-weight:400 700;font-display:swap}
+:root{
+  --grund:#FAF1E6; --tinte:#1C1130; --leise:#5B4E6B; --orange:#FF7A2E; --orange-dunkel:#B84A00;
+  --himmel:#4DD2F6; --rot:#FB343B; --karte:#FFFFFF;
+}
+*{box-sizing:border-box}
+html{-webkit-text-size-adjust:100%}
+body{margin:0;min-height:100vh;background:var(--grund);color:var(--tinte);font:18px/1.6 "DM Sans",system-ui,sans-serif;display:flex;flex-direction:column}
+.band{height:6px;background:linear-gradient(90deg,var(--himmel),var(--orange),var(--rot));background-size:200% 100%;animation:fliessen 12s ease-in-out infinite alternate}
+@keyframes fliessen{to{background-position:100% 0}}
+main{flex:1;width:100%;max-width:46rem;margin:0 auto;padding:56px 24px 40px;text-align:center}
+.logo{width:88px;height:88px;border-radius:22px;box-shadow:0 6px 24px rgb(28 17 48/.14)}
+.marke{margin:20px 0 0;font-size:.78rem;letter-spacing:.18em;text-transform:uppercase;color:var(--leise);font-weight:600}
+h1{font:400 clamp(2.4rem,7vw,4rem)/1.08 Fraunces,Georgia,serif;margin:.4em 0 .3em;letter-spacing:-.01em}
+h1 em{font-style:italic;background:linear-gradient(90deg,var(--himmel),var(--orange),var(--rot));-webkit-background-clip:text;background-clip:text;color:transparent;padding-right:.05em}
+.hand{font:600 1.9rem/1.2 Caveat,cursive;color:var(--orange-dunkel);margin:0 0 1.4rem;transform:rotate(-1.5deg)}
+.lead{font-size:1.15rem;max-width:34rem;margin:0 auto 2rem}
+ul.fuer{list-style:none;margin:0 auto 2.4rem;padding:0;display:flex;flex-wrap:wrap;gap:10px;justify-content:center}
+ul.fuer li{background:var(--karte);border-radius:999px;padding:8px 18px;font-weight:600;font-size:.98rem;box-shadow:0 1px 3px rgb(28 17 48/.10)}
+.knopf{display:inline-block;min-height:52px;padding:14px 32px;border-radius:999px;background:var(--orange);color:var(--tinte);font-weight:700;text-decoration:none;font-size:1.05rem;box-shadow:0 6px 20px rgb(255 122 46/.35);transition:transform .15s ease,box-shadow .15s ease}
+.knopf:hover{transform:translateY(-2px);box-shadow:0 10px 26px rgb(255 122 46/.45)}
+.knopf:focus-visible{outline:3px solid var(--tinte);outline-offset:4px}
+.hinweis{margin:1.2rem auto 0;max-width:30rem;font-size:.92rem;color:var(--leise)}
+footer{padding:24px;text-align:center;font-size:.85rem;color:var(--leise)}
+footer a{color:inherit;text-underline-offset:3px}
+footer a:focus-visible{outline:2px solid var(--tinte);outline-offset:2px}
+@media (prefers-reduced-motion:reduce){.band{animation:none}.knopf{transition:none}}
+@media (prefers-color-scheme:dark){
+  :root{--grund:#1C1130;--tinte:#FAF1E6;--leise:#BDB2CC;--karte:#2A1C45;--orange-dunkel:#FFA463}
+  .knopf{color:#1C1130}
+  .logo{box-shadow:0 6px 24px rgb(0 0 0/.4)}
+  ul.fuer li{box-shadow:none}
+}
+</style>
+</head>
+<body>
+<div class="band" aria-hidden="true"></div>
+<main>
+  <img class="logo" src="assets/logo/flowstate-express-logo-512.webp" width="88" height="88" alt="Flowstate Express">
+  <p class="marke">Flowstate Express</p>
+  <h1>Hier entsteht etwas <em>Magisches.</em></h1>
+  <p class="hand">Unseren Gefühlen Farbe verleihen.</p>
+  <p class="lead">Etwas Fantastisches, etwas Zauberhaftes wächst hier heran. Für jeden. Für uns alle.</p>
+  <ul class="fuer" aria-label="Wofür Flowstate Express entsteht">
+    <li>mehr Gemeinschaft</li>
+    <li>mehr Kunst</li>
+    <li>mehr Erschaffen</li>
+    <li>mehr Kreativität</li>
+    <li>mehr Magie</li>
+  </ul>
+  <a class="knopf" href="https://prototype.flowstate.express">Zum Prototyp</a>
+  <p class="hinweis">Der Prototyp zeigt den Ideenstand, noch nicht das fertige Produkt. Der Zugang ist im Moment auf Einladung.</p>
+</main>
+<footer>© 2026 Flowstate Foundation · <a href="https://flowstate.foundation/impressum">Impressum</a> · <a href="https://flowstate.foundation/datenschutz">Datenschutz</a></footer>
+</body>
+</html>
